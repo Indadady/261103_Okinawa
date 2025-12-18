@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP 초청: 오키나와 럭셔리 온천 & 역사 투어</title>
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="[VIP] 오키나와 4박 5일 프라이빗 온천 투어">
+    <meta property="og:description" content="에메랄드빛 바다와 류큐의 역사, 매일 밤 즐기는 온천 휴양">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1470&auto=format&fit=crop">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; color: #1e293b; word-break: keep-all; }
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 0.6)), url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1470&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+        .ocean-text { color: #0077be; }
+        .coral-text { color: #ff7f50; }
+        .bg-ocean { background-color: #0077be; }
+        .bg-navy { background-color: #0f172a; }
+        
+        /* Timeline */
+        .timeline-item { position: relative; padding-left: 2rem; padding-bottom: 2.5rem; border-left: 1px solid #e2e8f0; }
+        .timeline-item:last-child { border-left: none; }
+        .timeline-dot { position: absolute; left: -0.35rem; top: 0.25rem; width: 0.75rem; height: 0.75rem; border-radius: 50%; background-color: #0077be; outline: 4px solid white; }
+
+        .info-card { transition: all 0.3s ease; }
+        .info-card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-up { animation: fadeInUp 0.8s ease-out forwards; }
+
+        .video-thumbnail { position: relative; cursor: pointer; overflow: hidden; }
+        .video-thumbnail::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.3); z-index: 1; }
+        .video-thumbnail.playing::before { display: none; }
+        .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 64px; height: 64px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; transition: all 0.3s; }
+        .video-thumbnail:hover .play-button { transform: translate(-50%, -50%) scale(1.1); background: #0077be; color: white; }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex-shrink-0">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" alt="Tourmaker" class="h-10 w-auto">
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#concept" class="text-sm font-bold text-slate-600 hover:text-[#0077be] transition">CONCEPT</a>
+                <a href="#hotel" class="text-sm font-bold text-slate-600 hover:text-[#0077be] transition">STAY</a>
+                <a href="#schedule" class="text-sm font-bold text-slate-600 hover:text-[#0077be] transition">ITINERARY</a>
+                <a href="#guide" class="text-sm font-bold text-slate-600 hover:text-[#0077be] transition">GUIDE</a>
+            </nav>
+            <a href="https://indadady.github.io/TourMaker_profile/" target="_blank" class="bg-navy text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg">상담문의</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section text-white">
+            <div class="container mx-auto px-4 text-center z-10 animate-up">
+                <span class="inline-block border border-white/30 bg-white/10 backdrop-blur px-4 py-1 rounded-full text-xs font-bold tracking-widest mb-6 uppercase">Tourmaker Private Collection</span>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+                    푸른 숨결의 섬,<br>
+                    <span class="ocean-text">OKINAWA</span><br>
+                    HEALING JOURNEY
+                </h1>
+                <p class="text-lg md:text-xl font-medium text-slate-100 mb-2 max-w-2xl mx-auto">
+                    2026년 11월 3일, 오키나와의 가장 아름다운 가을 속으로.
+                </p>
+                <p class="text-sm md:text-base font-light text-cyan-300 mb-10 tracking-wider">
+                    *본 일정은 16인 단독 프라이빗 투어로 기획되었습니다.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#schedule" class="bg-ocean text-white px-8 py-4 rounded-sm font-bold text-lg hover:bg-blue-700 transition shadow-xl">일정 확인하기</a>
+                    <a href="#hotel" class="bg-transparent border border-white text-white px-8 py-4 rounded-sm font-bold text-lg hover:bg-white hover:text-navy transition">호텔&온천 보기</a>
+                </div>
+            </div>
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i class="fa-solid fa-chevron-down text-white/50 text-2xl"></i>
+            </div>
+        </section>
+
+        <!-- Premium Concept -->
+        <section id="concept" class="py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">PREMIUM OKINAWA</h2>
+                    <div class="w-16 h-1 bg-ocean mx-auto mb-6"></div>
+                    <p class="text-slate-600 font-medium">오직 16분만을 위한 특별한 오키나와 공식 일정</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="text-center group">
+                        <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-hot-tub-person text-3xl text-ocean"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Everyday Spa & Onsen</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">매일 일정의 마무리는 따뜻한 온천욕.<br>여행의 피로를 녹이는 정통 스파 호텔에서의 숙박을 보장합니다.</p>
+                    </div>
+                    <div class="text-center group">
+                        <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-shuttle-van text-3xl text-ocean"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">16인 단독 프라이빗</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">다른 일행 섞임 없이 우리 팀만을 위한 전용 차량과 스루가이드의 세심한 케어가 제공됩니다.</p>
+                    </div>
+                    <div class="text-center group">
+                        <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-fish-fins text-3xl text-ocean"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Best Selection</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">츄라우미 수족관부터 오키나와 월드까지,<br>섬의 북부와 남부를 아우르는 최적의 동선을 구성했습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stay Showcase -->
+        <section id="hotel" class="py-24 bg-navy text-white relative overflow-hidden">
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2">
+                        <span class="text-cyan-400 font-bold tracking-widest text-sm uppercase mb-4 block">Recommended Stay</span>
+                        <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight">르와지르 나하<br>& 퀄리티 온천 호텔</h2>
+                        <div class="space-y-6 text-slate-300">
+                            <p class="leading-relaxed">오키나와에서 드문 천연 온천 시설을 갖춘 호텔을 엄선했습니다. 시내 접근성과 휴양을 동시에 잡은 베스트 로케이션입니다.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-ocean mr-3"></i> 지하 800m에서 솟아나는 천연 온천 체험</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-ocean mr-3"></i> 나하 시내와 공항을 잇는 편리한 위치</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-ocean mr-3"></i> 쾌적한 2인 1실 트윈룸 기준</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=800" class="rounded-lg shadow-xl" alt="Okinawa Hotel">
+                        <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=800" class="rounded-lg shadow-xl mt-8" alt="Okinawa Spa">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Itinerary -->
+        <section id="schedule" class="py-24 bg-slate-50">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">ITINERARY</h2>
+                    <p class="text-slate-600 font-medium">4박 5일간의 오키나와 완벽 일주</p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="flex overflow-x-auto border-b border-slate-100 no-scrollbar" id="dayTabs"></div>
+                    <div id="scheduleContent" class="p-6 md:p-12 min-h-[400px]"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Guide -->
+        <section id="guide" class="py-24 bg-white">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">TRAVEL GUIDE</h2>
+                    <p class="text-slate-600 font-medium">오키나와 여행 전 체크리스트</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="info-card bg-slate-50 p-8 rounded-2xl border border-slate-100">
+                        <i class="fa-solid fa-cloud-sun text-3xl text-ocean mb-6"></i>
+                        <h3 class="text-xl font-bold mb-4">11월의 날씨</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">평균 22℃ 내외로 여행하기 가장 쾌적한 시기입니다. 얇은 긴소매 옷과 가디건을 준비하세요.</p>
+                    </div>
+                    <div class="info-card bg-slate-50 p-8 rounded-2xl border border-slate-100">
+                        <i class="fa-solid fa-plug text-3xl text-orange-400 mb-6"></i>
+                        <h3 class="text-xl font-bold mb-4">전압 및 전자기기</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">일본은 110V를 사용합니다. 멀티탭이나 '돼지코' 어댑터를 미리 준비해 주세요.</p>
+                    </div>
+                    <div class="info-card bg-slate-50 p-8 rounded-2xl border border-slate-100">
+                        <i class="fa-solid fa-van-shuttle text-3xl text-green-500 mb-6"></i>
+                        <h3 class="text-xl font-bold mb-4">단독 행사 원칙</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">쇼핑은 지정된 면세점 1회만 진행하며, 노옵션 원칙으로 불필요한 비용 발생을 최소화합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preview Video -->
+        <section class="py-24 bg-slate-900 text-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-black mb-12">PREVIEW OKINAWA</h2>
+                <div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
+                    <div class="video-thumbnail relative pb-[56.25%]" onclick="playVideo(this, 'w66_X2D_Egs')">
+                        <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=1200" class="absolute top-0 left-0 w-full h-full object-cover">
+                        <div class="play-button"><i class="fa-solid fa-play text-slate-900 text-2xl"></i></div>
+                    </div>
+                </div>
+                <p class="mt-8 text-slate-400">영상으로 미리 보는 에메랄드빛 오키나와</p>
+            </div>
+        </section>
+
+        <!-- Summary & Legal -->
+        <section class="py-20 bg-[#f8f5f0]">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-black text-slate-900 mb-8">Reservation Info</h2>
+                <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg mb-10">
+                    <div class="flex justify-between items-center border-b border-slate-100 pb-4 mb-4">
+                        <span class="text-slate-500 font-bold">출발일</span>
+                        <span class="text-slate-900 font-bold">2026년 11월 3일 (화)</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-slate-100 pb-4 mb-4">
+                        <span class="text-slate-500 font-bold">이용항공</span>
+                        <span class="text-slate-900 font-bold">이스타항공 (ZE) 인천 출발</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+                        <span class="text-slate-500 font-bold">참가인원</span>
+                        <span class="text-slate-900 font-bold">16명 단독 행사</span>
+                    </div>
+                </div>
+
+                <div class="text-xs text-slate-500 max-w-3xl mx-auto mb-10 leading-relaxed bg-slate-100 p-4 rounded-lg">
+                    <p class="mb-2 font-bold text-red-600">※ 현재 항공 및 호텔 요금이 확정되지 않은 상태로, 제시된 일정은 초안이며 금액은 별도 문의 및 확정 과정이 필요합니다.</p>
+                    <p>※ 일본은 현재 무비자 입국이 가능하나, 정책 변화에 따라 절차가 변경될 수 있습니다. 실제 계약 시 최종 규정을 안내해 드립니다.</p>
+                </div>
+
+                <a href="https://indadady.github.io/TourMaker_profile/" target="_blank" class="inline-flex items-center bg-navy text-white px-12 py-5 rounded-sm font-bold text-xl hover:bg-slate-800 transition shadow-xl">
+                    <i class="fa-solid fa-phone mr-3"></i> 투어메이커 상세 상담하기
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-500 py-12 text-center text-sm">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" alt="Tourmaker" class="h-8 mx-auto mb-6 opacity-30 grayscale">
+        <p>(주)투어메이커 | 오키나와 VIP 단독 일정 제안서</p>
+        <p class="mt-4">&copy; 2025 Tourmaker. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const scheduleData = {
+            day1: {
+                title: "나하의 일상을 만나다", date: "11/03 (화)",
+                items: [
+                    { time: "11:25", title: "인천 출발 (ZE631)", desc: "오키나와를 향한 설레는 비행 시작" },
+                    { time: "14:00", title: "나하 국제공항 도착", desc: "가이드 미팅 및 전용 차량 탑승" },
+                    { time: "오후", title: "마키시 공설시장", desc: "'나하의 부엌'에서 즐기는 생생한 로컬 체험과 먹거리 투어" },
+                    { time: "18:00", title: "석식 (일정식)", desc: "정갈한 일본 전통식으로 즐기는 첫 저녁" },
+                    { time: "20:00", title: "호텔 체크인 및 온천", desc: "천연 온천욕으로 여행 첫날의 피로 해소" }
+                ]
+            },
+            day2: {
+                title: "푸른 바다의 신비", date: "11/04 (수)",
+                items: [
+                    { time: "09:00", title: "해양박공원 (츄라우미)", desc: "세계 2대 규모의 수족관과 오키짱 돌고래쇼 관람" },
+                    { time: "11:30", title: "글래스보트 체험", desc: "유리 바닥 너머로 펼쳐지는 산호초와 열대어 감상" },
+                    { time: "14:00", title: "만좌모", desc: "코끼리 바위로 유명한 오키나와 최고의 절경" },
+                    { time: "16:00", title: "아메리칸 빌리지", desc: "이국적인 풍경과 쇼핑, 선셋비치의 낭만" },
+                    { time: "18:00", title: "석식 (야키니쿠 무제한)", desc: "지글지글 고소한 구이 요리의 향연" }
+                ]
+            },
+            day3: {
+                title: "역사와 문화의 숨결", date: "11/05 (목)",
+                items: [
+                    { time: "09:00", title: "치넨미사키 공원", desc: "태평양을 한눈에 담는 압도적인 뷰포인트" },
+                    { time: "11:00", title: "오키나와 월드", desc: "교쿠센도 동굴과 전통 에이사 공연 관람" },
+                    { time: "14:00", title: "평화기념공원", desc: "역사를 기억하고 평화를 기원하는 의미 있는 시간" },
+                    { time: "16:00", title: "마사히로 주조소", desc: "140년 전통의 아와모리 소주 시음 및 체험" },
+                    { time: "18:00", title: "석식 (샤브샤브)", desc: "신선한 재료로 즐기는 따뜻한 특식" }
+                ]
+            },
+            day4: {
+                title: "섬의 속살을 걷다", date: "11/06 (금)",
+                items: [
+                    { time: "09:00", title: "우라소에 성터", desc: "바다와 미군 기지가 내려다보이는 역사적 명소" },
+                    { time: "11:00", title: "류큐무라", desc: "오키나와의 옛 모습을 그대로 간직한 민속촌" },
+                    { time: "14:00", title: "자키미 성터", desc: "유네스코 세계문화유산의 고즈넉한 성벽 산책" },
+                    { time: "16:00", title: "잔파미사키", desc: "하얀 등대와 절벽이 어우러진 시원한 풍광" },
+                    { time: "18:00", title: "석식 (스시 세트)", desc: "오키나와 바다를 담은 신선한 초밥" }
+                ]
+            },
+            day5: {
+                title: "아쉬운 작별", date: "11/07 (토)",
+                items: [
+                    { time: "09:00", title: "슈리성 공원", desc: "류큐 왕국의 영광과 위용을 만나는 시간" },
+                    { time: "11:00", title: "국제거리 자유시간", desc: "오키나와 제일의 번화가에서 마지막 쇼핑과 산책" },
+                    { time: "13:00", title: "면세점 방문", desc: "합리적인 쇼핑 시간" },
+                    { time: "15:00", title: "나하 출발 (ZE632)", desc: "추억을 싣고 인천으로" },
+                    { time: "18:20", title: "인천 공항 도착", desc: "감사합니다." }
+                ]
+            }
+        };
+
+        let currentDay = 'day1';
+        function switchDay(day) {
+            currentDay = day;
+            renderTabs();
+            renderContent();
+        }
+
+        function renderTabs() {
+            const container = document.getElementById('dayTabs');
+            container.innerHTML = Object.entries(scheduleData).map(([key, data]) => `
+                <button onclick="switchDay('${key}')" class="flex-shrink-0 px-6 py-4 text-sm font-bold transition-colors ${key === currentDay ? 'border-b-2 border-ocean text-slate-900 bg-slate-50' : 'text-slate-400'}">
+                    <span class="block text-xs mb-1">${data.date}</span>
+                    DAY ${key.slice(3)}
+                </button>
+            `).join('');
+        }
+
+        function renderContent() {
+            const data = scheduleData[currentDay];
+            document.getElementById('scheduleContent').innerHTML = `
+                <div class="animate-up">
+                    <h3 class="text-2xl font-black text-slate-900 mb-8">${data.title}</h3>
+                    <div class="space-y-0">
+                        ${data.items.map(item => `
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="flex flex-col md:flex-row gap-2 md:gap-8">
+                                    <span class="text-sm font-bold text-slate-400 w-16 pt-1">${item.time}</span>
+                                    <div class="flex-1 bg-white p-5 rounded-lg border border-slate-100 shadow-sm">
+                                        <h4 class="font-bold text-lg text-slate-800 mb-1">${item.title}</h4>
+                                        <p class="text-slate-600 text-sm leading-relaxed">${item.desc}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function playVideo(el, id) {
+            el.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&mute=1" class="absolute top-0 left-0 w-full h-full" frameborder="0" allowfullscreen></iframe>`;
+            el.classList.add('playing');
+        }
+
+        renderTabs();
+        renderContent();
+    </script>
+</body>
+</html>
