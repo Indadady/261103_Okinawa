@@ -9,7 +9,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="[VIP] 오키나와 4박 5일 프라이빗 온천 투어">
     <meta property="og:description" content="에메랄드빛 바다와 류큐의 역사, 매일 밤 즐기는 온천 휴양">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1470&auto=format&fit=crop">
+    <meta property="og:image" content="https://cf.bstatic.com/xdata/images/hotel/max500/160672997.jpg?hp=1&k=beaca362980ea0a74be0e745d256a508b9a26b4321145cc10d03745511390fa8&o=">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -40,7 +40,6 @@
             z-index: -1;
         }
         .ocean-text { color: #0077be; }
-        .coral-text { color: #ff7f50; }
         .bg-ocean { background-color: #0077be; }
         .bg-navy { background-color: #0f172a; }
         
@@ -55,10 +54,17 @@
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .animate-up { animation: fadeInUp 0.8s ease-out forwards; }
 
-        .video-thumbnail { position: relative; cursor: pointer; overflow: hidden; }
-        .video-thumbnail::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.3); z-index: 1; }
+        .video-thumbnail { position: relative; cursor: pointer; overflow: hidden; border-radius: 1rem; }
+        .video-thumbnail::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.2); z-index: 1; transition: background 0.3s; }
+        .video-thumbnail:hover::before { background: rgba(0, 0, 0, 0.4); }
         .video-thumbnail.playing::before { display: none; }
-        .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 64px; height: 64px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; transition: all 0.3s; }
+        
+        .play-button { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            width: 70px; height: 70px; background: rgba(255, 255, 255, 0.95); 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            z-index: 2; transition: all 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
         .video-thumbnail:hover .play-button { transform: translate(-50%, -50%) scale(1.1); background: #0077be; color: white; }
     </style>
 </head>
@@ -72,7 +78,7 @@
             </a>
             <nav class="hidden md:flex space-x-8">
                 <a href="#concept" class="text-sm font-bold text-slate-600 hover:text-[#0077be] transition">CONCEPT</a>
-                <a href="#hotel" class="text-sm font-bold text-slate-600 hover:text-[#0077be] transition">STAY</a>
+                <a href="#hotel" class="text-sm font-bold text-slate-600 hover:text-[#0077be] transition">LOISIR NAHA</a>
                 <a href="#schedule" class="text-sm font-bold text-slate-600 hover:text-[#0077be] transition">ITINERARY</a>
                 <a href="#guide" class="text-sm font-bold text-slate-600 hover:text-[#0077be] transition">GUIDE</a>
             </nav>
@@ -98,7 +104,7 @@
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <a href="#schedule" class="bg-ocean text-white px-8 py-4 rounded-sm font-bold text-lg hover:bg-blue-700 transition shadow-xl">일정 확인하기</a>
-                    <a href="#hotel" class="bg-transparent border border-white text-white px-8 py-4 rounded-sm font-bold text-lg hover:bg-white hover:text-navy transition">호텔&온천 보기</a>
+                    <a href="#hotel" class="bg-transparent border border-white text-white px-8 py-4 rounded-sm font-bold text-lg hover:bg-white hover:text-navy transition">호텔&온천 상세보기</a>
                 </div>
             </div>
             <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -121,7 +127,7 @@
                             <i class="fa-solid fa-hot-tub-person text-3xl text-ocean"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Everyday Spa & Onsen</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">매일 일정의 마무리는 따뜻한 온천욕.<br>여행의 피로를 녹이는 정통 스파 호텔에서의 숙박을 보장합니다.</p>
+                        <p class="text-slate-500 text-sm leading-relaxed">나하 도심 유일의 천연 온천 보유.<br>지하 800m 원천의 따뜻한 온천욕으로 매일 밤 여행의 피로를 녹입니다.</p>
                     </div>
                     <div class="text-center group">
                         <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6">
@@ -141,25 +147,45 @@
             </div>
         </section>
 
-        <!-- Stay Showcase -->
+        <!-- Loisir Hotel Naha Showcase -->
         <section id="hotel" class="py-24 bg-navy text-white relative overflow-hidden">
             <div class="container mx-auto px-4 relative z-10">
-                <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="flex flex-col lg:flex-row items-start gap-16">
                     <div class="lg:w-1/2">
                         <span class="text-cyan-400 font-bold tracking-widest text-sm uppercase mb-4 block">Recommended Stay</span>
-                        <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight">르와지르 나하<br>& 퀄리티 온천 호텔</h2>
+                        <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight">Loisir Hotel Naha<br><span class="text-ocean">르와지르 호텔 나하</span></h2>
                         <div class="space-y-6 text-slate-300">
-                            <p class="leading-relaxed">오키나와에서 드문 천연 온천 시설을 갖춘 호텔을 엄선했습니다. 시내 접근성과 휴양을 동시에 잡은 베스트 로케이션입니다.</p>
-                            <ul class="space-y-3">
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-ocean mr-3"></i> 지하 800m에서 솟아나는 천연 온천 체험</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-ocean mr-3"></i> 나하 시내와 공항을 잇는 편리한 위치</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-ocean mr-3"></i> 쾌적한 2인 1실 트윈룸 기준</li>
-                            </ul>
+                            <p class="leading-relaxed">오키나와 나하시 중심에 위치한 준특급 도시형 리조트 호텔로, 도심 관광과 온천 휴양을 동시에 만족시키는 최고의 선택입니다.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                                <div class="bg-white/5 p-4 rounded-lg border border-white/10">
+                                    <h4 class="font-bold text-[#0077be] mb-2"><i class="fa-solid fa-location-dot mr-2"></i>최적의 위치</h4>
+                                    <p class="text-xs">공항 차량 7~10분, 아사히바시역 도보 15분, 국제거리 택시 10분 내외의 뛰어난 접근성</p>
+                                </div>
+                                <div class="bg-white/5 p-4 rounded-lg border border-white/10">
+                                    <h4 class="font-bold text-[#0077be] mb-2"><i class="fa-solid fa-water-ladder mr-2"></i>수영장 & 스파</h4>
+                                    <p class="text-xs">계절별 야외 수영장과 연중 이용 가능한 실내 수영장, 그리고 지하 800m 천연 원천 온천 시설</p>
+                                </div>
+                                <div class="bg-white/5 p-4 rounded-lg border border-white/10">
+                                    <h4 class="font-bold text-[#0077be] mb-2"><i class="fa-solid fa-bed mr-2"></i>다양한 객실</h4>
+                                    <p class="text-xs">시티뷰부터 발코니 객실, 전통 다다미실까지 500실 이상의 규모를 자랑하는 대형 리조트</p>
+                                </div>
+                                <div class="bg-white/5 p-4 rounded-lg border border-white/10">
+                                    <h4 class="font-bold text-[#0077be] mb-2"><i class="fa-solid fa-utensils mr-2"></i>프리미엄 다이닝</h4>
+                                    <p class="text-xs">다양한 레스토랑의 뷔페 조식과 풀사이드 바비큐 등 고품격 식음료 서비스</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="lg:w-1/2 grid grid-cols-2 gap-4">
-                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=800" class="rounded-lg shadow-xl" alt="Okinawa Hotel">
-                        <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=800" class="rounded-lg shadow-xl mt-8" alt="Okinawa Spa">
+                    <div class="lg:w-1/2 w-full space-y-4">
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl group">
+                            <img src="https://cf.bstatic.com/xdata/images/hotel/max500/160672997.jpg?hp=1&k=beaca362980ea0a74be0e745d256a508b9a26b4321145cc10d03745511390fa8&o=" class="w-full h-80 object-cover group-hover:scale-110 transition duration-700" alt="Loisir Exterior">
+                            <div class="absolute bottom-4 left-4 bg-navy/80 px-4 py-2 rounded-lg text-sm font-bold">호텔 전경 & 수영장</div>
+                        </div>
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl group">
+                            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/71/66/65/caption.jpg?h=500&s=1&w=900" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700" alt="Loisir Poolside">
+                            <div class="absolute bottom-4 left-4 bg-navy/80 px-4 py-2 rounded-lg text-sm font-bold">여유로운 풀사이드 라운지</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -207,17 +233,28 @@
             </div>
         </section>
 
-        <!-- Preview Video -->
+        <!-- Preview Video Section -->
         <section class="py-24 bg-slate-900 text-white">
             <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl font-black mb-12">PREVIEW OKINAWA</h2>
+                <h2 class="text-3xl font-black mb-4 uppercase tracking-tighter">PREVIEW OKINAWA</h2>
+                <p class="text-slate-400 mb-12">영상으로 미리 떠나는 에메랄드빛 오키나와 여행</p>
+                
                 <div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
-                    <div class="video-thumbnail relative pb-[56.25%]" onclick="playVideo(this, 'w66_X2D_Egs')">
-                        <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=1200" class="absolute top-0 left-0 w-full h-full object-cover">
-                        <div class="play-button"><i class="fa-solid fa-play text-slate-900 text-2xl"></i></div>
+                    <div class="video-thumbnail relative pb-[56.25%]" onclick="playVideo(this, '1SW1UjN9XN8')">
+                        <!-- YouTube Thumbnail Link for the specific video -->
+                        <img src="https://img.youtube.com/vi/1SW1UjN9XN8/maxresdefault.jpg" class="absolute top-0 left-0 w-full h-full object-cover">
+                        <div class="play-button">
+                            <i class="fa-solid fa-play text-slate-900 text-2xl"></i>
+                        </div>
                     </div>
                 </div>
-                <p class="mt-8 text-slate-400">영상으로 미리 보는 에메랄드빛 오키나와</p>
+                <div class="mt-8 flex items-center justify-center gap-4 text-sm text-slate-400">
+                    <span class="flex items-center"><i class="fa-solid fa-eye mr-2"></i> 힐링 풍경</span>
+                    <span class="h-1 w-1 bg-slate-700 rounded-full"></span>
+                    <span class="flex items-center"><i class="fa-solid fa-clock mr-2"></i> 가상 투어</span>
+                    <span class="h-1 w-1 bg-slate-700 rounded-full"></span>
+                    <span class="flex items-center"><i class="fa-solid fa-location-dot mr-2"></i> 핵심 관광지</span>
+                </div>
             </div>
         </section>
 
@@ -236,7 +273,7 @@
                     </div>
                     <div class="flex justify-between items-center border-b border-slate-100 pb-4">
                         <span class="text-slate-500 font-bold">참가인원</span>
-                        <span class="text-slate-900 font-bold">16명 단독 행사</span>
+                        <span class="text-slate-900 font-bold">16명 단독 확정 진행</span>
                     </div>
                 </div>
 
@@ -245,8 +282,8 @@
                     <p>※ 일본은 현재 무비자 입국이 가능하나, 정책 변화에 따라 절차가 변경될 수 있습니다. 실제 계약 시 최종 규정을 안내해 드립니다.</p>
                 </div>
 
-                <a href="https://indadady.github.io/TourMaker_profile/" target="_blank" class="inline-flex items-center bg-navy text-white px-12 py-5 rounded-sm font-bold text-xl hover:bg-slate-800 transition shadow-xl">
-                    <i class="fa-solid fa-phone mr-3"></i> 투어메이커 상세 상담하기
+                <a href="https://indadady.github.io/TourMaker_profile/" target="_blank" class="inline-flex items-center bg-navy text-white px-12 py-5 rounded-sm font-bold text-xl hover:bg-slate-800 transition shadow-xl group">
+                    <i class="fa-solid fa-phone mr-3 group-hover:text-ocean transition"></i> 투어메이커 상세 상담하기 (회사소개)
                 </a>
             </div>
         </section>
@@ -267,13 +304,13 @@
                     { time: "14:00", title: "나하 국제공항 도착", desc: "가이드 미팅 및 전용 차량 탑승" },
                     { time: "오후", title: "마키시 공설시장", desc: "'나하의 부엌'에서 즐기는 생생한 로컬 체험과 먹거리 투어" },
                     { time: "18:00", title: "석식 (일정식)", desc: "정갈한 일본 전통식으로 즐기는 첫 저녁" },
-                    { time: "20:00", title: "호텔 체크인 및 온천", desc: "천연 온천욕으로 여행 첫날의 피로 해소" }
+                    { time: "20:00", title: "르와지르 나하 체크인", desc: "도심 속 천연 온천욕으로 여행 첫날의 피로 해소" }
                 ]
             },
             day2: {
                 title: "푸른 바다의 신비", date: "11/04 (수)",
                 items: [
-                    { time: "09:00", title: "해양박공원 (츄라우미)", desc: "세계 2대 규모의 수족관과 오키짱 돌고래쇼 관람" },
+                    { time: "09:00", title: "해양박공원 (츄라우미 수족관)", desc: "세계 2대 규모의 수족관과 오키짱 돌고래쇼 관람" },
                     { time: "11:30", title: "글래스보트 체험", desc: "유리 바닥 너머로 펼쳐지는 산호초와 열대어 감상" },
                     { time: "14:00", title: "만좌모", desc: "코끼리 바위로 유명한 오키나와 최고의 절경" },
                     { time: "16:00", title: "아메리칸 빌리지", desc: "이국적인 풍경과 쇼핑, 선셋비치의 낭만" },
@@ -340,7 +377,7 @@
                                 <div class="timeline-dot"></div>
                                 <div class="flex flex-col md:flex-row gap-2 md:gap-8">
                                     <span class="text-sm font-bold text-slate-400 w-16 pt-1">${item.time}</span>
-                                    <div class="flex-1 bg-white p-5 rounded-lg border border-slate-100 shadow-sm">
+                                    <div class="flex-1 bg-white p-5 rounded-lg border border-slate-100 shadow-sm hover:border-ocean/20 transition">
                                         <h4 class="font-bold text-lg text-slate-800 mb-1">${item.title}</h4>
                                         <p class="text-slate-600 text-sm leading-relaxed">${item.desc}</p>
                                     </div>
@@ -353,7 +390,7 @@
         }
 
         function playVideo(el, id) {
-            el.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&mute=1" class="absolute top-0 left-0 w-full h-full" frameborder="0" allowfullscreen></iframe>`;
+            el.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&mute=1&controls=1" class="absolute top-0 left-0 w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
             el.classList.add('playing');
         }
 
